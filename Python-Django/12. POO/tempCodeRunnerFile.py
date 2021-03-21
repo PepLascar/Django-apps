@@ -1,0 +1,1 @@
+(  auto.marca, auto.getModelo(), auto.getColor()  )
