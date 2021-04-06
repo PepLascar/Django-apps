@@ -32,7 +32,19 @@ marco.config(
 )
 marco.pack(side=RIGHT, anchor=NE)
 marco.pack_propagate(False) #para que el marco no se contraiga y se le pueda meter información.
-Label(marco, text="Primer marco").pack(side=LEFT, anchor=SE) #primero ubicarlo con elside y luego con el anchor
+
+texto = Label(marco, text="UUUUUUUU") #primero ubicarlo con elside y luego con el anchor
+texto.config(
+    bg="red",
+    fg="white",
+    font=("Arial", 20),
+    height=10,
+    width=10,
+    bd=3,
+    relief=SOLID
+)
+texto.pack(anchor=CENTER, fill=Y, expand=YES) #el anchor se puede poner tanto en el config o en el pack.
+
 
 
 #MARCO BOTTOM
