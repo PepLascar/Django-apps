@@ -1,0 +1,67 @@
+<!--#Puedo hacer que este layout esté presente en todas las vistas del sitio concadenandolo en el return de los request http response-->
+
+{% load static %} <!--cargando plantilla css en el Layout-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        <!--Título de cada página, de cada pág voy a estar heredandoe sa plantilla-->
+        {% endblock %}        
+        | django, python y flask
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" /> <!--cargando plantilla css en el Layout (ficheso estático)-->
+
+</head>
+
+<body>
+    <h1> Sitio web con Django | Jose Lascar </h1>
+    <hr />
+    <ul>
+        <li>
+            <a href="/inicio">Inicio</a>
+        </li>
+
+        <li>
+            <a href="/holamundo">Hola mundo</a>
+        </li>
+
+        <li>
+            <a href="/nosotros">Nosotros</a>
+        </li>
+
+        <li>
+            <a href="/contacto">Contacto</a>
+        </li>
+
+        <li>
+            <a href="/donaciones">Donaciones</a>
+        </li>
+
+        <li>
+            <a href="/pruebas">Pruebas</a>
+        </li>
+    </ul>
+    <hr />
+
+<!-- Creando bloque que viene de templates   -->
+    <div id="content">
+        {% block content %}
+        <strong> Contenido del bloque original !!!(probando la herencia) </strong>
+        {% endblock %}
+    </div>
+
+    
+    <hr/>
+    <footer>   
+        - FOOTER - Master en Python &copy; Jose Lascar
+    </footer>
+
+
+</body>
+</html>
