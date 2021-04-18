@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duoc UC</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background: #303f9f;
+            height: 300px;
+        }
+
+        header img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        nav {
+            background-color: #424242;
+            height: 200px
+        }
+
+        .menu_navegacion_duocuc {
+            list-style-type: none;
+            display: inline-block
+        }
+
+        .menu_navegacion_duocuc>li {
+            display: inline-block;
+            background: aqua;
+            border: 1px solid #000;
+            padding: 5px 10px;
+            margin: 5px 10px;
+        }
+
+        .contenido {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .left {
+            float: left;
+            width: 33.3%
+        }
+
+        .right {
+            float: right;
+        }
+
+        footer {
+            background: #303f9f;
+            color: white;
+            padding: 15px;
+            min-height: 100px;
+            max-height: 300px;
+        }
+
+        /*
+            El id predomina sobre la clase !important
+        */
+        #menu_navegacion>li {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <header><img
+            src="https://media.licdn.com/dms/image/C4E0BAQEXMjCyTs9KEw/company-logo_200_200/0?e=2159024400&v=beta&t=FzSuR5h-SMew9i-llojwliEqz8NCRTShVFAbDpLf_OQ"
+            alt="" srcset=""></header>
+    <nav>
+        <ul class="menu_navegacion_duocuc">
+            <li><a href="https://www.duoc.cl" target="_self">Duoc UC</a></li>
+            <li><a href="https://google.cl" target="_blank">Google</a></li>
+            <li><a href="https://pcfactory.cl">PCFactory</a></li>
+        </ul>
+
+        <ul class="menu_navegacion_duocuc">
+            <li><a href="https://www.duoc.cl" target="_self">Duoc UC</a></li>
+            <li><a href="https://google.cl" target="_blank">Google</a></li>
+            <li><a href="https://pcfactory.cl">PCFactory</a></li>
+        </ul>
+    </nav>
+
+    <section class="contenido">Secciones del documento html</section>
+
+    <footer>
+        <section class="contenido">
+            <section class="left">
+                <p>Pie de página de mi documento html izq.</p>
+            </section>
+            <section class="left">
+                <p>Pie de página de mi documento html izq.</p>
+            </section>
+            <section class="left">
+                <p>Pie de página de mi documento html izq.</p>
+            </section>
+        </section>
+    </footer>
+</body>
+
+</html>
+
+<!--Etiquetas dentro de otras, ciertas etiquetas pueden estar contenida sobre las de estructuras
+es decir X etiquetas contenedores pueden existir dentro del footer-->
+
+<!--Section etiquetas de contenido
+Me posiciono dentro de footer x ej para ver las MDN reference-->

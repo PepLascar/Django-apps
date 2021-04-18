@@ -1,0 +1,70 @@
+/*Cambiando elementos del body de la página*/
+/*
+#content{
+    width: 1500px;   
+    margin: 0px auto;
+    border: 1px solid black;
+}*/
+
+/*Cambiando elementos del body de la página*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+body{
+    background: rgb(195, 170, 226);
+    font-family: consolas, calibri;
+}
+
+header{
+    background: red;
+    height: 100px;
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    border-bottom: 3px solid black;
+}
+
+nav{
+    background: lightgrey;
+    height: 100px;
+    border-bottom: 1px black;
+}
+
+nav ul li {
+    list-style: none;
+    float: left;
+    margin: 25px;
+    line-height: 50px;
+}
+
+.clearfix{
+    clear: both;
+}
+
+#content{
+    float: left;
+    width: 80%;
+    min-height: 500px;
+    background: seagreen;
+
+}
+
+aside{
+    float: left;
+    width: 20%;
+    background: sienna;
+    min-height: 500px;
+}
+
+footer{
+    background: steelblue;
+    color: white;
+    text-align: center;
+    height: 80px;
+    line-height: 50px;
+}
