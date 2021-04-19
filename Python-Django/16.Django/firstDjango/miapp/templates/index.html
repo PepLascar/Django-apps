@@ -4,6 +4,23 @@
 {% block title %} INDEX {% endblock %}    <!--Nombre pestaña página-->
 
 {% block content %}
-<h1>Inicio</h1>
+
+<h2 class="tittle"> Título página (Div content) </h2>
+
+
+
+
+<h1 class="title">{{title}}</h1> {#  Paso la variable desde la view def index  #}
+
+
+
+
+{{mi_variable}}  {#  Pasar un dato desde el controlador(vista) hacia la template para mostrarla #}
+
+
 <p>Años hasta el 8888-8888:</p>
+
 {% endblock %}
+
+{% comment "comentario en Django" %}
+{% endcomment %}

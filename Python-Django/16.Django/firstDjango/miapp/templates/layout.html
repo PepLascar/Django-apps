@@ -1,6 +1,6 @@
 <!--#Puedo hacer que este layout esté presente en todas las vistas del sitio concadenandolo en el return de los request http response-->
 
-{% load static %} <!--cargando plantilla css en el Layout-->
+<!--cargando plantilla css en el Layout-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,16 +12,24 @@
         {% block title %}
         <!--Título de cada página, de cada pág voy a estar heredandoe sa plantilla-->
         {% endblock %}        
-        | django, python y flask
+        | Título pestaña páginas
     </title>
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" /> <!--cargando plantilla css en el Layout (ficheso estático)-->
-
+        {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" /> <!--cargando plantilla css en el Layout (ficheso estático)-->
 </head>
 
+
 <body>
-    <h1> Sitio web con Django | Jose Lascar </h1>
-    <hr />
+
+    <header>
+        <div id="logotipo">
+            <img src="{% static 'imgs/logo.png' %}" alt="logo">  <!--Cargando logo de manera estática-->
+        <h1> Sitio web con Django | Jose Lascar (Header) </h1>
+        </div>
+    </header>
+
+<nav>  
     <ul>
         <li>
             <a href="/inicio">Inicio</a>
@@ -46,21 +54,29 @@
         <li>
             <a href="/pruebas">Pruebas</a>
         </li>
-    </ul>
-    <hr />
+    </ul>    
+</nav>
+
+<div class="barra">  
+    <span class="esquina-izquierda"> </span>
+    <span class="relleno-barra"> </span>
+    <span class="esquina-derecha"> </span>   
+</div>
+
 
 <!-- Creando bloque que viene de templates   -->
-    <div id="content">
+<div id="content">
+    <div class="box">
         {% block content %}
         <strong> Contenido del bloque original !!!(probando la herencia) </strong>
         {% endblock %}
     </div>
+</div>
 
-    
-    <hr/>
-    <footer>   
-        - FOOTER - Master en Python &copy; Jose Lascar
-    </footer>
+
+<footer>   
+    - FOOTER - Master en Python &copy; Jose Lascar
+</footer>
 
 
 </body>

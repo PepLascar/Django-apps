@@ -26,7 +26,7 @@ import miapp.views
 #el primer parametro es el nombre del path que se utiliza para visitar la url
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('       ', miapp.views.index, name="index"),
+    path('', miapp.views.index, name="index"),
     path('inicio/', miapp.views.index, name="inicio"),
     path('holamundo/', miapp.views.holaMundo, name="hola_mundo" ),
     path('nosotros/', miapp.views.nosotros, name="nosotros"),
