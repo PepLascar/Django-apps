@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: whitesmoke;
+    background-color: rgb(250, 249, 249);
 }
 
 header{
@@ -14,6 +14,11 @@ header{
     height: 140px;
     background-color: lightslategray;
     margin: 0px auto;
+}
+
+p, h1, h2, h3, ul{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /*Estilos para darle formato a logotipo, a la caja*/

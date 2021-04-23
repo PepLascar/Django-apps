@@ -23,17 +23,19 @@ from django.urls import path
 #from miapp import views
 import miapp.views
 
-#el primer parametro es el nombre del path que se utiliza para visitar la url
+#el primer parametro es el nombre del path que se utiliza para visitar la url  -  Primer parámetro es el URL
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', miapp.views.index, name="index"),
     path('inicio/', miapp.views.index, name="inicio"),
-    path('holamundo/', miapp.views.holaMundo, name="hola_mundo" ),
+    path('holamundo-django/', miapp.views.holaMundo, name="hola_mundo" ),
     path('nosotros/', miapp.views.nosotros, name="nosotros"),
     path('contacto/<str:nombre>/<str:apellido>', miapp.views.contacto, name="contacto"), #en la URL se pueden pasar parámetros en este caso /<str:nombre>
 
     path('pruebas/', miapp.views.pruebas, name="pruebas"), #parámetros-opcionaes
     path('pruebas/<int:redirigir>/', miapp.views.pruebas, name="pruebas"),
+
+    path('pagina/', miapp.views.pagina, name="pagina"),    
 
     path('donaciones/', miapp.views.donaciones, name="donaciones"), #parámetros-opcionaes
     path('donaciones/<str:nombre>/', miapp.views.donaciones, name="donaciones"),

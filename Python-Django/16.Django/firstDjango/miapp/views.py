@@ -1,5 +1,4 @@
 #Hay diferentes tipos de shortcuts
-
 from django.shortcuts import render, HttpResponse, redirect
 
 # MVC vs MVT  -  En Django en controlador es la Vista que contiene -> Acciones
@@ -9,8 +8,12 @@ layout = ""
 
 #AQUÍ prácticamente estoy reando PÁGINAS
 def index(request):  #Método para crear el index
-    html = """ 
     """
+    html = ""
+    <h1>Inicio</h1>
+    <p>Años hasta el 2050</p>
+    <ul>
+    ""
     year = 2021
     while year <= 2050:
 
@@ -18,11 +21,22 @@ def index(request):  #Método para crear el index
             html += f"<li>{str(year)}</li>"
         year += 1
     html += "</ul>"  #esto es para concadenar a var html el </ul>
+    """
+
+    year = 2021
+    hasta = range(year, 2051)
+
+    nombre = None
+    #Trabajando con lista
+    lenguajes = ['Boostrap','JavaScript','Django','Vue']
     
     #Aquí paso los datos de la vista a la plantilla html
     return render(request,'index.html',{
         'title' : 'Inicio',
-        'mi_variable' : 'Soy un dato que está en la vista'
+        'mi_variable' : 'Soy un dato que está en la vista',
+        'nombre': nombre,
+        'lenguajes': lenguajes,
+        'years': hasta
     })
 
 def nosotros(request):
@@ -33,7 +47,7 @@ def holaMundo(request):  #request parametro que permite recibir parametros para 
 
 def contacto(request, nombre, apellido): #def con parámetro vinculada con /<str:nombre>   El parámetro me lo devuelve en la página
     return HttpResponse(layout+
-    f"<h1>Contacto {nombre}{apellido}</h1>")
+    f"<h1>Contacto {nombre} {apellido}</h1>")
 
 def donaciones(request, nombre="", apellido=""):  #PARÁMETROS OPCIONALES
 
@@ -49,9 +63,13 @@ def donaciones(request, nombre="", apellido=""):  #PARÁMETROS OPCIONALES
 def pruebas(request, redirigir=0):  #REDIRECCIÓN en este caso a /inicio/
 
     if redirigir == 1:
-        return redirect('contacto', nombre="Jose", apellido="Lascar") 
+        return redirect('pagina') 
     return HttpResponse(layout+"""
-    <h1>PRUEBAS</h1>
-    <h2>PROBANDO ... ...</h2>
-    
+    <h1>Ingresar número para redirigir: </h1>
     """)
+
+def pagina(request):
+    return render(request, 'pagina.html', {
+        'texto': '',
+        'lista': ['uno', 'dos', 'tres']
+    })

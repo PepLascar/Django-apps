@@ -1,5 +1,4 @@
 <!--#Puedo hacer que este layout esté presente en todas las vistas del sitio concadenandolo en el return de los request http response-->
-
 <!--cargando plantilla css en el Layout-->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +14,9 @@
         | Título pestaña páginas
     </title>
 
-        {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" /> <!--cargando plantilla css en el Layout (ficheso estático)-->
+
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" /> <!--cargando plantilla css en el Layout (ficheso estático)-->
 </head>
 
 
@@ -32,23 +32,23 @@
 <nav>  
     <ul>
         <li>
-            <a href="/inicio">Inicio</a>
+            <a href="{% url 'inicio'%}">Inicio</a> <!-- heredando las URL de views.py-->
         </li>
 
         <li>
-            <a href="/holamundo">Hola mundo</a>
+            <a href="{% url 'hola_mundo'%}">Hola mundo</a>
         </li>
 
         <li>
-            <a href="/nosotros">Nosotros</a>
+            <a href="{% url 'nosotros'%}">Nosotros</a>
         </li>
 
         <li>
-            <a href="/contacto">Contacto</a>
+            <a href="{% url 'contacto' 'ASDF' 'lascar'%}">Contacto</a>
         </li>
 
         <li>
-            <a href="/donaciones">Donaciones</a>
+            <a href="{% url 'donaciones' 'jose' 'lascar'%}">Donaciones</a>
         </li>
 
         <li>
@@ -68,14 +68,14 @@
 <div id="content">
     <div class="box">
         {% block content %}
-        <strong> Contenido del bloque original !!!(probando la herencia) </strong>
+        <strong> Contenido del bloque original !!! (probando la herencia) </strong>
         {% endblock %}
     </div>
 </div>
 
-
+<!-- incorporando fecha en el footer -->
 <footer>   
-    - FOOTER - Master en Python &copy; Jose Lascar
+    - FOOTER - Master en Python &copy; Jose Lascar - {%  now "d/M/Y h:m:s" %}
 </footer>
 
 

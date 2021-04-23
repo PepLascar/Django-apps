@@ -1,4 +1,3 @@
-
 <!--  Esta es la vista completamente separada del poy y el html  -->
 {% extends 'layout.html' %}
 {% block title %} INDEX {% endblock %}    <!--Nombre pestaña página-->
@@ -7,20 +6,32 @@
 
 <h2 class="tittle"> Título página (Div content) </h2>
 
-
-
-
 <h1 class="title">{{title}}</h1> {#  Paso la variable desde la view def index  #}
 
 
 
+<p>{{mi_variable}}  </p>{#  Pasar un dato desde el controlador (vista) hacia la template para mostrarla #}
 
-{{mi_variable}}  {#  Pasar un dato desde el controlador(vista) hacia la template para mostrarla #}
+
+{# se pueden usar todas las condiciones de python dentro de Django#}
+{% if nombre and nombre == 'Jose Lascar' %} 
+    <p>{{nombre}}</p>
+{% else %}
+    <strong>El nombre no existe o no coincide</strong>
+{% endif %}
 
 
-<p>Años hasta el 8888-8888:</p>
+{# ciclo for #}
+<br>
+<h3>LISTADO LENGUAJES DE PROGRAMACIÓN </h3>
+<ul>
+    {% for i in lenguajes %}
+        <li>{{ i }}</li>
+    {% endfor %}
+<ul>
+
+{% include 'fecha-actual.html' with saludo="HolaMundo desde index" only %} {# El only no hereda los datos de la plantilla heredada en este caso {% extends 'layout.html' %}#}
+
+<p>Años hasta el 88-88:</p>
 
 {% endblock %}
-
-{% comment "comentario en Django" %}
-{% endcomment %}

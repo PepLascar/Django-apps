@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block title %} PAGINA {% endblock %} 
+
+{% block content %}
+<h1>En templates -> página.html</h1>
+
+{{"Creado por JAL ññ"|cut:"ñ" }}
+
+
+
+<br>
+    {{texto|default:"- No hay texto en def pagina(): -"}}
+
+<br>
+    {{lista|join:', '}} {#Se puedeusar first, last #}
+
+<br>
+    {{lista|length}} {#Total elementos #}
+
+<br>
+    {{"Texto pruebas"|length}} {#Elementos del string #}
+
+<br>
+    {{"Texto pruebas"|lower}} {#Minús #}
+
+<p>
+    {{"Texto pruebas"|random}} {#Valor random #}    
+</p>
+
+
+{# Ejemplo: quita el html posible que haya en el texto para imprimir el dato de forma limpia #}
+<p>
+    {{"<h1>Texto pruebas</h1>  <strong>asdasd  asd  as</strong>"|striptags|wordcount}} {# wordcount cuenta palabras, ver mas filtros en la documentación #}
+</p>
+
+{% load filters %}
+{{"JAL Web"|saludo|safe}}  {#copia filtrando el html a codigo de la plantilla#}
+
+{% endblock %}
