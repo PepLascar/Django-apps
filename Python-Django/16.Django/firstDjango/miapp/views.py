@@ -73,3 +73,6 @@ def pagina(request):
         'texto': '',
         'lista': ['uno', 'dos', 'tres']
     })
+
+    def pag():
+        return render(request, 'pa')
