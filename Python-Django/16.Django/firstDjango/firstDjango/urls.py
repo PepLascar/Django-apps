@@ -39,5 +39,9 @@ urlpatterns = [
 
     path('donaciones/', miapp.views.donaciones, name="donaciones"), #parámetros-opcionaes
     path('donaciones/<str:nombre>/', miapp.views.donaciones, name="donaciones"),
-    path('donaciones/<str:nombre>/<str:apellido>/', miapp.views.donaciones, name="donaciones")
+    path('donaciones/<str:nombre>/<str:apellido>/', miapp.views.donaciones, name="donaciones"),
+
+    path('crear-articulo/<str:tittle>/<str:content>/<str:public>/', miapp.views.crear_articulo, name="crear-articulo"),    #creando obj artículo dándo parámetro por url
+
+    path('articulo/', miapp.views.getArticulo, name="articulo")  
 ]
