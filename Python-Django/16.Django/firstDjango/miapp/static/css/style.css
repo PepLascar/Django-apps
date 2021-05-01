@@ -130,7 +130,7 @@ nav ul li a:hover{ /*configuración centrado nav*/
     background: whitesmoke;
     width: 95%;
     min-height: 930px; /*como la pag quelo contiene*/
-    border-radius: 3px;
+    border-radius: 2px;
     padding: 20px;
     border: 1px solid #ddd;
 }
@@ -148,7 +148,7 @@ nav ul li a:hover{ /*configuración centrado nav*/
 
 .box form input[type="text"],
 .box form textarea{
-    width: 1%;
+    width: 100%;
     margin-bottom: 10px;
 }
 
@@ -162,10 +162,19 @@ nav ul li a:hover{ /*configuración centrado nav*/
 .box form button{
     padding: 10px;
     margin-top: 10px;
+    background: rgb(20, 61, 59);
+    border: 1px solid black;
+    color: white;
+    transition: 200ms all;
 }
 
-
-
+.box form input[type="submit"]:hover,
+.box form input[type="button"]:hover,
+.box form button{
+    cursor: pointer;
+    background: rgb(6, 19, 18);
+    transition: 300ms all;
+}
 
 .tittle{
     color: #444;

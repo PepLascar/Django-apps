@@ -7,16 +7,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        {% block title %}
-        <!--Título de cada página, de cada pág voy a estar heredandoe sa plantilla-->
-        {% endblock %}        
-        | Título pestaña páginas
-    </title>
 
+<title>
+    {% block title %}
+    <!--Título de cada página, de cada pág voy a estar heredandoe sa plantilla-->
+    {% endblock %}        
+    | Título pestaña páginas
+</title>
 
 {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" /> <!--cargando plantilla css en el Layout (ficheso estático)-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" /> <!--cargando plantilla css en el Layout (ficheso estático)-->
+    
 </head>
 
 
@@ -34,6 +35,15 @@
         <li>
             <a href="{% url 'inicio'%}">Inicio</a> <!-- heredando las URL de views.py-->
         </li>
+
+        <li>
+            <a href="{% url 'articulos'%}">Artículos</a>
+        </li>
+
+        <li>
+            <a href="{% url 'create'%}">Crear Artículos</a>
+        </li>
+
 
         <li>
             <a href="{% url 'hola_mundo'%}">Hola mundo</a>

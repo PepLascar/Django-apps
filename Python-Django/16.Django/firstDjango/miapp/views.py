@@ -1,12 +1,10 @@
 from django.shortcuts import render, HttpResponse, redirect #Hay diferentes tipos de shortcuts
 from miapp.models import Article
-
-# MVC vs MVT  -  En Django en controlador es la Vista que contiene -> Acciones
-# estos href están relacionados con el meny y su redirección
+from django.db.models import Q #funcionalidad or
 
 layout = ""
 
-#AQUÍ prácticamente estoy reando PÁGINAS
+#AQUÍ prácticamente estoy creando PÁGINAS
 def index(request):  #Método para crear el index
     """
     html = ""
@@ -81,17 +79,32 @@ def pagina(request):
     def pag():
         return render(request, 'pa')
 
-#CREAR UN OBJETO ARTICULO DENTRO DE LA BD - atributos del objeto articulo
-def crear_articulo(request, tittle, content, public):  #variable con parámetro que entrega el valor
+
+def crear_articulo(request, tittle, content, public):  #CREAR UN OBJETO ARTICULO DENTRO DE LA BD - atributos del objeto articulo. Variable con parámetro que entrega el valor
     articulo = Article(
         tittle = tittle,
         content = content,
         public = public       
     )
     articulo.save() #para guardar un artículo obj en la bd  
-
     return HttpResponse(f"Artículo creado {articulo.tittle} - {articulo.content } ")
-   # return render(req, 'crear-articulo.html') 
+
+
+def save_article(req):  #CREAR artículo sin parámetro por URL, todo por FORMULARIO, deben haber variables que reciban los datos.
+    articulo = Article(
+        tittle = tittle,
+        content = content,
+        public = public       
+    )
+    articulo.save()
+    return HttpResponse(f"Artículo creado {articulo.tittle} - {articulo.content } ")
+
+
+def create_article(req):
+    return render(req, 'create-article.html')
+
+
+
 
 def getArticulo(req): #Se puede entregar parámetro fijo o por url
     try:
@@ -102,4 +115,44 @@ def getArticulo(req): #Se puede entregar parámetro fijo o por url
         response = "<h1>Artículo no encontrado</h1>"
 
     return HttpResponse(response)  #retornando la respuesta del try catch
+
+
+def editarArticulo(req, id): #EDITAR ARTÍCULOS
+    articulo = Article.objects.get(pk=id) #voy a buscar por la pk/id id artículo
+
+    articulo.tittle  = "Electrónica"
+    articulo.content = "Productos"
+    articulo.public  = True
+
+    articulo.save() # Guardo cambios. Editando objeto ya existente identificado por su id
+
+    return HttpResponse(f"Artículo {articulo.id} editado {articulo.tittle} - {articulo.content } ")
+
  
+def articulos(request): #LISTAR ARTÍCULOS
+
+    #articulos = Article.objects.all() #Obtener todos los elementos de la base de datos.
+    #articulos = Article.objects.order_by('id')  #  '-id',  '-tittle',  [3:7]limit
+    #articulos = Article.objects.filter(tittle__contains="")  #Filter permite por id =, tittle__contains, tittle__exact, _iexact, id__gt=12, lt=10
+    """articulos = Article.objects.filter(tittle__contains="Articulo",
+                                        #public=
+    ).exclude(
+        public=False  #puedo cambiar el estado de quien quiero excluir
+    )"""
+
+    articulos = Article.objects.filter(
+        Q(tittle__contains="2") | Q(public=True)  #OR
+    )
+
+    #articulos = Article.objects.raw("SELECT * from miapp_article WHERE tittle='articulo 2' and public=0 ")
+
+    return render(request, 'articulos.html',{
+        'articulos': articulos
+    })
+
+
+def borrar_articulo(req, id):
+    articulo = Article.objects.get(pk=id)
+    articulo.delete()
+
+    return redirect('articulos')

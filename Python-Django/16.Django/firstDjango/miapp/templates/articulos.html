@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block tittle %} Listado de artículos {% endblock %}
+
+
+{%block content%}
+<h1 class="title">Listado de artículos </h1>
+
+
+
+<!--  Aquí ahgo la lógica para poder cargar la lista de artículos  -->
+<ul>
+    {% for articulo in articulos %}
+        <li>
+            <strong>ID artículo:  {{articulo.id}}</strong>
+            <br/>{{articulo.tittle}}
+            <span> Creado el     {{articulo.crated_at}}</span>
+            
+            {% if articulo.public == True %}
+            <strong>Estado Publicado.</strong>
+            {% else %}
+            <strong>Estado Privado</strong>
+            {% endif %}
+
+            <p>{{articulo.content}}</p>
+            <a href = "{% url 'borrar' id=articulo.id %}">Eliminar</a>  <!--Este es el parámetro que le voy a pasar a la url borrar-->
+            <br/>
+        </li>
+        <br/>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
+
+
+

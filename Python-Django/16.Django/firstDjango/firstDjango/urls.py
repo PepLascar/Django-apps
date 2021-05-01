@@ -43,5 +43,14 @@ urlpatterns = [
 
     path('crear-articulo/<str:tittle>/<str:content>/<str:public>/', miapp.views.crear_articulo, name="crear-articulo"),    #creando obj artículo dándo parámetro por url
 
-    path('articulo/', miapp.views.getArticulo, name="articulo")  
+    path('articulo/', miapp.views.getArticulo, name="articulo"),
+
+    path('editar-articulo/<int:id>', miapp.views.editarArticulo),
+
+    path('articulos/', miapp.views.articulos, name="articulos"),
+
+    path('borrar-articulo/<int:id>', miapp.views.borrar_articulo, name="borrar"),
+
+    path('save-article/', miapp.views.save_article, name="save"),
+    path('create-article/', miapp.views.create_article, name="create")
 ]
