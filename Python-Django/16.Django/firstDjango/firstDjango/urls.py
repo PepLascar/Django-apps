@@ -13,44 +13,30 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-#Aquí se agregan las url para usarlas desde las views con el html
+# URL - VIEW - TEMPLATE
 from django.contrib import admin
 from django.urls import path
+from miapp import views # dos formas: 'from miapp import views' o 'import miapp.views'
 
-#importar app con las vistas que quiero trabajar
-#puedo importar de dos formas: 'from miapp import views' o 'import miapp.views'
-
-#from miapp import views
-import miapp.views
-
-#el primer parametro es el nombre del path que se utiliza para visitar la url  -  Primer parámetro es el URL
-urlpatterns = [
+urlpatterns = [ # Nombre del path | importe def del view |  name/id
     path('admin/', admin.site.urls),
-    path('', miapp.views.index, name="index"),
-    path('inicio/', miapp.views.index, name="inicio"),
-    path('holamundo-django/', miapp.views.holaMundo, name="hola_mundo" ),
-    path('nosotros/', miapp.views.nosotros, name="nosotros"),
-    path('contacto/<str:nombre>/<str:apellido>', miapp.views.contacto, name="contacto"), #en la URL se pueden pasar parámetros en este caso /<str:nombre>
-
-    path('pruebas/', miapp.views.pruebas, name="pruebas"), #parámetros-opcionaes
-    path('pruebas/<int:redirigir>/', miapp.views.pruebas, name="pruebas"),
-
-    path('pagina/', miapp.views.pagina, name="pagina"),    
-
-    path('donaciones/', miapp.views.donaciones, name="donaciones"), #parámetros-opcionaes
-    path('donaciones/<str:nombre>/', miapp.views.donaciones, name="donaciones"),
-    path('donaciones/<str:nombre>/<str:apellido>/', miapp.views.donaciones, name="donaciones"),
-
-    path('crear-articulo/<str:tittle>/<str:content>/<str:public>/', miapp.views.crear_articulo, name="crear-articulo"),    #creando obj artículo dándo parámetro por url
-
-    path('articulo/', miapp.views.getArticulo, name="articulo"),
-
-    path('editar-articulo/<int:id>', miapp.views.editarArticulo),
-
-    path('articulos/', miapp.views.articulos, name="articulos"),
-
-    path('borrar-articulo/<int:id>', miapp.views.borrar_articulo, name="borrar"),
-
-    path('save-article/', miapp.views.save_article, name="save"),
-    path('create-article/', miapp.views.create_article, name="create")
+    path('', views.index, name="index"),
+    path('inicio/', views.index, name="inicio"),
+    path('holamundo-django/', views.holaMundo, name="hola_mundo" ),
+    path('nosotros/', views.nosotros, name="nosotros"),
+    path('contacto/<str:nombre>/<str:apellido>', views.contacto, name="contacto"), #en la URL se pueden pasar parámetros en este caso /<str:nombre>
+    path('pruebas/', views.pruebas, name="pruebas"),
+    path('pruebas/<int:redirigir>/', views.pruebas, name="pruebas"),
+    path('pagina/', views.pagina, name="pagina"),    
+    path('donaciones/', views.donaciones, name="donaciones"),
+    path('donaciones/<str:nombre>/', views.donaciones, name="donaciones"),
+    path('donaciones/<str:nombre>/<str:apellido>/', views.donaciones, name="donaciones"),
+    path('crear-articulo/<str:tittle>/<str:content>/<str:public>/', views.crear_articulo, name="crear-articulo"), #creando obj artículo por parámetro url
+    path('articulo/', views.getArticulo, name="articulo"),
+    path('editar-articulo/<int:id>', views.editarArticulo),
+    path('articulos/', views.articulos, name="articulos"),
+    path('borrar-articulo/<int:id>', views.borrar_articulo, name="borrar"),
+    path('save-article/', views.save_article, name="save"),
+    path('create-article/', views.create_article, name="create"),
+    path('create-full-article/', views.create_full_article, name ="create_full")
 ]
