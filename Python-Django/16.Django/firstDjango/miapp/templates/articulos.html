@@ -1,15 +1,20 @@
+<!--  Estructura template lista de artículos  -->
 {% extends 'layout.html' %}
 
 {% block tittle %} Listado de artículos {% endblock %}
-
-
 {%block content%}
+
 <h1 class="title">Listado de artículos </h1>
 
+{% if messages %}
+    {% for message in messages %}
+        <div class="message">
+            {{message}}
+        </div>
+    {% endfor %}
+{% endif %}
 
-
-<!--  Aquí ahgo la lógica para poder cargar la lista de artículos  -->
-<ul>
+<ul> 
     {% for articulo in articulos %}
         <li>
             <strong>ID artículo:  {{articulo.id}}</strong>
