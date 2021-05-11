@@ -156,7 +156,6 @@ def getArticulo(req): #Se puede entregar parámetro fijo o por url
 
     return HttpResponse(response)  #retornando la respuesta del try catch
 
-
 def editarArticulo(req, id): #EDITAR ARTÍCULOS
     articulo = Article.objects.get(pk=id) #voy a buscar por la pk/id id artículo
 
@@ -167,13 +166,12 @@ def editarArticulo(req, id): #EDITAR ARTÍCULOS
     articulo.save() # Guardo cambios. Editando objeto ya existente identificado por su id
 
     return HttpResponse(f"Artículo {articulo.id} editado {articulo.tittle} - {articulo.content } ")
-
  
 def articulos(request): #LISTAR ARTÍCULOS
 
-    articulos = Article.objects.all().order_by('-id') #Obtener todos los elementos de la base de datos.
+    #articulos = Article.objects.all().order_by('-id') #Obtener todos los elementos de la base de datos.
     #articulos = Article.objects.order_by('id')  #  '-id',  '-tittle',  [3:7]limit
-    #articulos = Article.objects.filter(tittle__contains="")  #Filter permite por id =, tittle__contains, tittle__exact, _iexact, id__gt=12, lt=10
+    articulos = Article.objects.filter(public=True).order_by('-id')  #Filter permite por tittle__contains="" id =, tittle__contains, tittle__exact, _iexact, id__gt=12, lt=10
     """articulos = Article.objects.filter(tittle__contains="Articulo",
                                         #public=
     ).exclude(
@@ -190,7 +188,6 @@ def articulos(request): #LISTAR ARTÍCULOS
     return render(request, 'articulos.html',{
         'articulos': articulos
     })
-
 
 def borrar_articulo(req, id):
     articulo = Article.objects.get(pk=id)

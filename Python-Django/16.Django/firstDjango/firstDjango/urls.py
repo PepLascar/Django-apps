@@ -16,8 +16,9 @@ Including another URLconf
 # URL - VIEW - TEMPLATE
 from django.contrib import admin
 from django.urls import path
-from miapp import views # dos formas: 'from miapp import views' o 'import miapp.views'
+from django.conf import settings #accediendo a settings
 
+from miapp import views # dos formas: 'from miapp import views' o 'import miapp.views'
 urlpatterns = [ # Nombre del path | importe def del view |  name/id
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
@@ -40,3 +41,9 @@ urlpatterns = [ # Nombre del path | importe def del view |  name/id
     path('create-article/', views.create_article, name="create"),
     path('create-full-article/', views.create_full_article, name ="create_full")
 ]
+
+
+# Configuración para cargar imágenes o carpetas  debug cuando se está el local, false cuando está en producción
+if settings.DEBUG == True:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

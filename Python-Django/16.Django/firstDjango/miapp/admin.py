@@ -6,3 +6,11 @@ class ArticleAdmin(admin.ModelAdmin): #es la clase que nos permite manupular los
 
 admin.site.register(Article, ArticleAdmin)  #muestro en el modelo la fecha d creación de los objetos
 admin.site.register(Categoria)
+
+#Configuración título panel django/admin ... ya estáimportando el módulo admin 
+titulo = "Proyecto 1 en Django"
+admin.site.site_header = titulo
+admin.site.site_title = "Administrador django 8"
+#subtítulo
+admin.site.index_title = "Administrador del proyecto 8"
+

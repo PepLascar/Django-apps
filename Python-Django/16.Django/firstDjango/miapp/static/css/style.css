@@ -21,6 +21,11 @@ p, h1, h2, h3, ul{
     margin-bottom: 10px;
 }
 
+.clearfix{
+    clear: both;
+    float: none;
+}
+
 /*Estilos para darle formato a logotipo, a la caja*/
 #logotipo{
     width: 70%;
@@ -206,4 +211,53 @@ footer{
     color: white;
     text-align: center;
     margin-bottom: 10px;
+}
+
+.article-item{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    clear: both; /**/
+}
+
+.article-item .image{
+    width: 150px;
+    height: 150px;
+    float: left;
+    overflow: hidden; /* lo que sobresalga del div lo va a ocultar*/
+}
+
+.article-item .image img{
+    height: 200px;
+}
+
+.article-item .data{
+    float: left;
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.article-item h2{
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.article-item span.date{  /*aquí estoy seleccionando los span que tengan la clase date solamente*/
+    display: block; /*para que se comporte como bloque*/
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.btn{
+    padding: 10px;
+    background: rgb(231, 108, 108);
+    color: whitesmoke;
+    border: 1px solid black;
+    display: block;  /*cuando actuan como block se ajustan al tamaño de la caja, para estos tengo que dar margin etc*/
+    margin-top: 15px;
+    width: 90px;
+    text-align: center;
 }

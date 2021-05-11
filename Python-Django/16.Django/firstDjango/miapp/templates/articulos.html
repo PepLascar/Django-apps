@@ -14,28 +14,41 @@
     {% endfor %}
 {% endif %}
 
-<ul> 
+
     {% for articulo in articulos %}
-        <li>
-            <strong>ID artículo:  {{articulo.id}}</strong>
-            <br/>{{articulo.tittle}}
-            <span> Creado el     {{articulo.crated_at}}</span>
+        <article class ="article-item">
+
+            {% if articulo.image != 'null' and articulo.image.url|length >= 1 %} <!-- y es diferente a null si image existe lo va a mostrar-->
+
+                <div class="image">
+                <img src="{{articulo.image.url}}"/> <!-- Con .url me saca la url del fichero donde se encuentra las imagenes-->
+                </div>
+
+            {% endif %}
             
+            <div class="data">
+            <br/>
+            <h2><strong>ID artículo:  {{articulo.id}}</strong></h2>
+            {{articulo.tittle}}
+            <span class="date"> Creado el     {{articulo.crated_at}}</span>
+            
+            <!-- 
             {% if articulo.public == True %}
             <strong>Estado Publicado.</strong>
             {% else %}
             <strong>Estado Privado</strong>
             {% endif %}
+            -->
 
-            <p>{{articulo.content}}</p>
-            <a href = "{% url 'borrar' id=articulo.id %}">Eliminar</a>  <!--Este es el parámetro que le voy a pasar a la url borrar-->
-            <br/>
-        </li>
-        <br/>
+            <p>{{articulo.content}}
+                <a href = "{% url 'borrar' id=articulo.id %}" class="btn btn-delete">Eliminar</a>  <!--Este es el parámetro que le voy a pasar a la url borrar-->
+            </p>
+            </div>
+
+            <div class="clearfix"></div>
+        </article>
+
     {% endfor %}
-</ul>
-
-
 {% endblock %}
 
 
