@@ -3,7 +3,7 @@ from miapp.models import Article
 from django.db.models import Q #funcionalidad or
 from miapp.forms import FormArticle  #importando esa clase para poder utilizanla
 from miapp import views
-from django.contrib import messages  #mensajes flash
+from django.contrib import messages  #Mensajes flash: desaparecen con una actualización
 
 layout = ""
 
