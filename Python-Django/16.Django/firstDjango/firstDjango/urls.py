@@ -19,6 +19,7 @@ from django.urls import path
 from django.conf import settings #accediendo a settings
 
 from miapp import views # dos formas: 'from miapp import views' o 'import miapp.views'
+
 urlpatterns = [ # Nombre del path | importe def del view |  name/id
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),

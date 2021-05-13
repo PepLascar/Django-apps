@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+    {% block title %}
+    {% endblock %}        
+    | Título pestaña páginas
+</title>
+
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    
+</head>
+
+
+<body>
+
+    <header>
+        <div id="logotipo">
+            <img src="{% static 'imgs/logo.png' %}" alt="logo">
+            <h1> Proyecto Django | Jose Lascar</h1>
+        </div>
+    </header>
+
+<nav>  
+    <ul>
+        <li>
+            <a href="{% url 'index' %}">Inicio</a>
+        </li>
+
+        {% for page in pages %}
+        <li>
+            <a href="#">{{page.1}}</a>
+        </li>
+        {% endfor %}
+
+    </ul>
+</nav>
+
+<div class="barra">   <!--Efecto 3d de la barra-->
+    <span class="esquina-izquierda"> </span>
+    <span class="relleno-barra"> </span>
+    <span class="esquina-derecha"> </span>   
+</div>
+
+
+<!-- Creando bloque que viene de templates   -->
+<div id="content">
+    <div class="box">
+        {% block content %}
+        <strong> Contenido del bloque original !!! (probando la herencia) </strong>
+        {% endblock %}
+    </div>
+</div>
+
+<footer>   
+    Master en Python &copy; Jose Lascar - {%  now "d/M/Y h:m:s" %}
+</footer>
+
+
+</body>
+</html>
