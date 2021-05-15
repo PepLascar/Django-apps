@@ -13,7 +13,7 @@
 </title>
 
 {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     
 </head>
 
@@ -35,8 +35,8 @@
 
         {% for page in pages %}
         <li>
-            <a href="#">{{page.1}}</a>
-        </li>
+            <a href="{% url 'page' page.2 %}">{{page.1}}</a>   <!--El context procesor hereda el elemento 1 que contienen los objetos en la BD para mostrar-->
+        </li>            <!--Obteniendo la información proveniente del indice de las tuplas, de la posición(titulo, nombre, slug)-->     
         {% endfor %}
 
     </ul>
