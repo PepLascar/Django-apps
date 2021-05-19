@@ -65,18 +65,19 @@ nav{
     font-size: 15px;
 }
 
-nav ul{
+nav > ul{
     list-style: none;
     text-decoration: none;
 
 }
 
-nav ul li{
+/* Que los estilos se incorpone al elemento hijo, al que viene después*/
+nav > ul > li{
     line-height: 40px;
     float: left;
 }
 
-nav ul li a{ /*elementos de los enlaces*/
+nav > ul > li > a{ /*elementos de los enlaces*/
     display: block;
     padding-right: 15px;
     padding-left: 15px;
@@ -88,11 +89,36 @@ nav ul li a{ /*elementos de los enlaces*/
 
 }
 
-nav ul li a:hover{ /*configuración centrado nav*/
+nav > ul > li > a:hover{ /*configuración centrado nav*/
     background: rgb(20, 61, 59);
     box-shadow: 0px 0px 15px inset;
     color:whitesmoke;
     transition: all 300ms;
+}
+
+nav > ul > li > ul{
+    display: none;
+    position: absolute;
+    color: white;
+    text-align: left;
+    width: 160px;
+    box-shadow: 0px 2px 2px gray;
+}
+
+nav > ul > li:hover > ul{  /*elementos de la lista sobre el hover*/
+    display: block;
+    color: white;
+    margin: 0px;
+    list-style: none ;
+
+}
+
+nav > ul > li:hover > ul > li{  /*elementos de la lista sobre el hover, la lista desplegable*/
+    background: #F2F1F0;
+    border-bottom: 1px solid #d6d6d6;
+    padding: 8px;
+    line-height:  25px;
+    font-size: 13px;
 }
 
 .barra{

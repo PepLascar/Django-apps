@@ -1,4 +1,4 @@
-#URLS vinculadas a pages
+#URLS vinculadas a BLOG
 from django.urls import path
 from . import views #fichero dentro de la misma carpeta
 

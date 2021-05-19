@@ -13,7 +13,7 @@
 </title>
 
 {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
     
 </head>
 
@@ -33,11 +33,29 @@
             <a href="{% url 'index' %}">Inicio</a>
         </li>
 
-        {% for page in pages %}
+        <li>
+            <a href="{% url 'list' %}">Categorías</a>
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}">Categoría 1</a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">Categoría 2</a>
+                </li>
+                <li>
+                    <a href="{% url 'index' %}">Categoría 3</a>
+                </li>
+            </ul>
+        </li>
+
+        {% for page in pages %}   {# for para cargar las paginas del nav#}
         <li>
             <a href="{% url 'page' page.2 %}">{{page.1}}</a>   <!--El context procesor hereda el elemento 1 que contienen los objetos en la BD para mostrar-->
         </li>            <!--Obteniendo la información proveniente del indice de las tuplas, de la posición(titulo, nombre, slug)-->     
         {% endfor %}
+
+
+
 
     </ul>
 </nav>
