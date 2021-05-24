@@ -214,7 +214,10 @@ nav > ul > li:hover > ul > li:hover a{  /*Elementos que son enlaces con del menu
 }
 
 .box form input[type="text"],
-.box form textarea{
+.box form input[type="email"],
+.box form input[type="password"],
+.box form textarea,
+.box form select{
     width: 100%;
     margin-bottom: 10px;
 }
@@ -279,7 +282,9 @@ footer{
     color: red;
 }
 
-.message{
+/*Estilos alerta del mensaje flash*/
+.message,
+.alert-success{
     padding: 20px;
     background: #1f7e58;
     color: white;

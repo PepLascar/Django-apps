@@ -1,0 +1,30 @@
+<!--    VISTA/TEMPLATE DEL LOGIN   -->
+
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+    <h1>{{title}}</h1>
+
+    {# Mostrar cuando se generan errores en el formulario #}
+    {{register_form.erros}}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+
+       {# {{register_form.as_p}} #} 
+     
+    {#   {{register_form.username.label}}  #}
+    {#   {{register_form.username}}        #}
+    
+    {% for field in register_form %} {# imprimir todos los campos del register from #}
+        <label>   {{field.label}}   </label>
+        {{field}}
+    {% endfor %}
+
+        <input type="submit" value="Registrarse" />
+    </form>
+
+{% endblock %}

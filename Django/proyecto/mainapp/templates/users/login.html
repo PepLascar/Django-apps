@@ -1,0 +1,33 @@
+<!--    VISTA/TEMPLATE DEL LOGIN   -->
+
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+    <h1>{{title}}</h1>
+
+    {% if messages %}
+        {% for i in messages %}
+        <div class="alert alert-warning">
+            {{ i }}  {#mensaje a mostrar #}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {# Mostrar cuando se generan errores en el formulario #}
+    {{register_form.erros}}
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="username">Nombre de usuario: </label>
+        <input type="text" name="username" />
+
+        <label for="password">Contraseña: </label>
+        <input type="password" name="password" />
+
+        <input type="submit" value="Login" />
+    </form>
+
+{% endblock %}

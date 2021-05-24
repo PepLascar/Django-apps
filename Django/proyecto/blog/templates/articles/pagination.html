@@ -1,3 +1,21 @@
 <div class = "pagination">
-    <h1> PAGINACION </h1>
+
+    {% if articles.has_previous %}  {#comprobar si tengo que imprimir el botón anterior o  no#}
+    <a href="?page=1">&laquo; Primero </a> {#"una clefhca hacia la derecha"#}
+    <a href="?page={{ articles.previous_page_number }}"> Anterior </a>  {# obtener numero de la paginaa anterior #}
+    {% endif %}
+
+    {# Numeración de la página #}
+    <span class="actual">
+        Página {{articles.number}} de {{articles.paginator.num_pages}}
+    </span>
+
+    {# Botón de siguiente #}
+    {% if articles.has_next %}  
+
+        <a href="?page={{ articles.next_page_number }}"> Siguiente </a>  {# página siguiente #}
+        <a href="?page={{articles.paginator.num_pages}}"> Última &raquo;</a> {# Llevar a la última página | raquo flecha der #}
+
+    {% endif %}
+
 </div>

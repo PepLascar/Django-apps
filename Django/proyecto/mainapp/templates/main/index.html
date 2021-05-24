@@ -4,4 +4,23 @@
 
 {% block content %}
     <h1>{{title}}</h1>
+    </hr>
+    {# Mostrando mensajes flash #}
+    {% if messages %}
+        {% for i in messages %}
+        <div class="alert alert-success">
+            {{ i }}  {#mensaje a mostrar #}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {# Bienvenida a nombre de usuario #}
+    {% if user.email %} {# si existe este correo #}
+        <h2> Bienvenido, {{request.user.first_name}} {{user.last_name}} </h2>
+        <p>  {{user.email}}  </p>
+    {% else %}
+            <h2>Identificate para ver la información completa</h2>
+    {% endif %}
+
 {% endblock %}
+

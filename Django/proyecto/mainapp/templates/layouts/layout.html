@@ -14,7 +14,7 @@
 </title>
 
 {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
     
 </head>
 
@@ -34,25 +34,38 @@
             <a href="{% url 'index' %}">Inicio</a>
         </li>
 
-        <li>
-            <a href="{% url 'list' %}">Categorías</a>
-            <ul>
-                {% for category in categories %}
-                    <li>
-                        <a href="{% url 'category' category.0  %}">{{category.1}}</a>   {# Aquí agrego la tupla que devuelve el procesador de contexto #}
-                    </li>
-                {% endfor %}
-            </ul>
-        </li>
+        {% if user.email %}
+            <li>
+                <a href="{% url 'list' %}">Categorías</a>
+                <ul>
+                    {% for category in categories %}
+                        <li>
+                            <a href="{% url 'category' category.0  %}">{{category.1}}</a>   {# Aquí agrego la tupla que devuelve el procesador de contexto #}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
 
-        {% for page in pages %}   {# for para cargar las paginas del nav#}
-        <li>
-            <a href="{% url 'page' page.2 %}">{{page.1}}</a>   <!--El context procesor hereda el elemento 1 que contienen los objetos en la BD para mostrar-->
-        </li>            <!--Obteniendo la información proveniente del indice de las tuplas, de la posición(titulo, nombre, slug)-->     
-        {% endfor %}
+            {% for page in pages %}   {# for para cargar las paginas del nav#}
+            <li>
+                <a href="{% url 'page' page.2 %}">{{page.1}}</a>   <!--El context procesor hereda el elemento 1 que contienen los objetos en la BD para mostrar-->
+            </li>            <!--Obteniendo la información proveniente del indice de las tuplas, de la posición(titulo, nombre, slug)-->     
+            {% endfor %}
 
+            <li>
+                <a href="{% url 'logout' %}">Cerrar sesión.</a>
+            </li>
 
+        {% else %}
 
+            <li>
+                <a href="{% url 'registro' %}">Registrate!</a>
+            </li>
+
+            <li>
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+        {% endif %}
 
     </ul>
 </nav>

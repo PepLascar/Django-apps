@@ -5,9 +5,10 @@
 {% block content %}
 
     <h1 class="title">{{title}}</h1>
+    {# Heredando template articles.html #}
     {% include 'articles/articles.html' %}
 
-    {# Heredando paginación.html #}
+    {# Heredando template paginación.html #}
     {% include 'articles/pagination.html' %}
 
 {% endblock %}
