@@ -55,7 +55,8 @@ TEMPLATES = [  #CONTEXT PROCESORS
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'pages.context_processors.get_pages'
+                'pages.context_processors.get_pages',   #procesador de contexto para páginas agregado
+                'blog.processor.get_categories'         #procesador de contexto para categorias agregado
             ],
         },
     },

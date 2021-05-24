@@ -1,0 +1,23 @@
+{% extends 'layouts/layout.html' %}   <!-- a pesar de estar dentro de otra app se sigue obteniendo la layout padre-->
+
+{% block title %} {{article.title}} {% endblock %}
+
+{% block content %}
+
+    {% if article.image != 'null' and article.image.url|length >= 1 %} <!-- y es diferente a null si image existe lo va a mostrar-->
+
+        <div class="image">
+            <img src="{{article.image.url}}"/> <!-- Con .url me saca la url del fichero donde se encuentra las imagenes-->
+        </div>
+
+    {% endif %}
+
+
+    <h1 class="title">{{article.title}}</h1>
+
+    <span class="date">{{article.created_at}}</span>    <!-- Montando la pagina a través de la herencia proveniente de la BD-->
+    <p class="content">
+        {{article.content|safe}} <!--para CKeditor - lo que haya en article.content con |safe reconoce lo escrito en html y no como texto plano-->
+    </p> 
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'layouts/layout.html' %}   <!-- a pesar de estar dentro de otra app se sigue obteniendo la layout padre-->
+
+{% block title %} {{category.name}} {% endblock %}
+
+{% block content %}
+    <h1 class="title">{{category.name}}</h1> {# mostrando la categoría #}
+    
+    <p>{{category.description}}</p> {# descripción de la categoría #}
+    {% include 'articles/articles.html' with articles=category.articles.all %}  {# incluir la template con los artículos, //with articles=articles #}
+                                          {#clase 283 están relacionados con catgorias c.283#}                                      
+
+
+{% endblock %}

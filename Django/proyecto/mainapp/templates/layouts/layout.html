@@ -1,3 +1,4 @@
+<!--Layout PRINCIPAL-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +14,7 @@
 </title>
 
 {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     
 </head>
 
@@ -36,15 +37,11 @@
         <li>
             <a href="{% url 'list' %}">Categorías</a>
             <ul>
-                <li>
-                    <a href="{% url 'index' %}">Categoría 1</a>
-                </li>
-                <li>
-                    <a href="{% url 'index' %}">Categoría 2</a>
-                </li>
-                <li>
-                    <a href="{% url 'index' %}">Categoría 3</a>
-                </li>
+                {% for category in categories %}
+                    <li>
+                        <a href="{% url 'category' category.0  %}">{{category.1}}</a>   {# Aquí agrego la tupla que devuelve el procesador de contexto #}
+                    </li>
+                {% endfor %}
             </ul>
         </li>
 
