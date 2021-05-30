@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect #Hay diferentes tipo
 from miapp.models import Article
 from django.db.models import Q #funcionalidad or
 from miapp.forms import FormArticle  #importando esa clase para poder utilizanla
-from miapp import views
+from miapp import views # ??
 from django.contrib import messages  #Mensajes flash: desaparecen con una actualización
 
 layout = ""
@@ -89,7 +89,7 @@ def save_article(request):  #CREAR artículo sin parámetro por URL, todo por FO
     if request.method == 'POST':
         
         tittle = request.POST['title']  #Validación
-        if len(tittle) > 4:
+        if len(tittle) < 4:
             return HttpResponse("Título muy pequeño")
 
         content = request.POST['content']
@@ -105,6 +105,7 @@ def save_article(request):  #CREAR artículo sin parámetro por URL, todo por FO
         print("Consola 110")
         return HttpResponse(f"Artículo creado {articulo.tittle} - {articulo.content } - {request.method} ")
         return redirect('articulos')
+
 
     else:
         return HttpResponse("<h2> No se ha podido crear el artículo </h2>")

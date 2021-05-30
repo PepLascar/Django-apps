@@ -26,8 +26,7 @@ class Article(models.Model):  #está heredando de <-- representan a tablas en la
             public = "(privado)"
         return f"{self.tittle} estado publicación: {public}"  #{self.crated_at }
        
-
-
+       
 class Categoria(models.Model):
     name = models.CharField(max_length=120)
     description = models.CharField(max_length=240)
