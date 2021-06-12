@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %} Listados {{super()}}
+
+{% endblock %} 
+
+{% block content%}
+<p>Página con la lista de elementos registrados en la base de datos</p>
+
+{# Mensajes flash #}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for i in messages%}
+            <div class="message alert-success">
+            {{i}}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+    {% for servicio in servicios %}
+    <article class="article-item">
+        <div class="data">
+            <h2>
+                <a href="{{ url_for('coche', coche_id=servicio.0)}}">
+                {{servicio.1}}
+                </a>
+            </h2>
+                {{servicio.2}}
+                |
+                {{servicio.3}}
+            <p>
+                {{servicio.4}}
+            </p>
+            <a href="{{ url_for('editar', coche_id=servicio.0)}}" class="btn">Editar</a>
+            <a href="{{ url_for('eliminar', coche_id=servicio.0)}}" class="btn-warning">Eliminar</a>
+        </div>
+        
+        <div class="clearfix"></div>
+        </article>
+    {% endfor %}
+{% endblock %}

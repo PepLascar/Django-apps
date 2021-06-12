@@ -1,0 +1,13 @@
+
+
+{% extends 'layout.html' %}  <!-- heredando los boques que tengo en layout-->
+
+{% block title %} Informacion {% endblock %} 
+
+
+{% block content%}
+
+<h1> Página información </h1>
+<h3>Bienvenido, {{texto|safe}}</h3>
+
+{% endblock %}

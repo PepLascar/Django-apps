@@ -66,6 +66,7 @@ def login_page(req):
             'title': 'Identificate'
         })
 
+
 def logout_user(req):
     logout(req)
     return redirect ('login')
@@ -86,26 +87,21 @@ def logout_user(req):
 - Crear un archivo en mainapp para manipular y personalizar el formulario
 - Una vez hechas las configuraciones de que datos quiero del for en forms.py debo cargarlo en las vistas
 - Importalo 
-"""
 
-"""
-- Crear función que contiene la lógica del login
-- Crear template que contendrá el login
-- Crear la url conectada con template de login
-- Luego en layout añadir el nuevo acceso al login para que el usuario lo vea
+    - Crear función que contiene la lógica del login
+    - Crear template que contendrá el login
+    - Crear la url conectada con template de login
+    - Luego en layout añadir el nuevo acceso al login para que el usuario lo vea
 Para hacer funcionar el LOGIN 294.
-- importar módulo de autenticación
-- en def_login:
+    - importar módulo de autenticación
+    - en def_login:
 Para el LOGOUT 296.
-- Crear la vista del logout en views
-- usar método logout importado y darle la request
-- Cargarlo en la lay out dentro del if el usuario está loguedo
+    - Crear la vista del logout en views
+    - usar método logout importado y darle la request
+    - Cargarlo en la lay out dentro del if el usuario está loguedo
 Para que los elementos no sean visibles desde cualquier parte a pesar de estar con logout 296
-- importar modulo de decorador en las otras apps (pages)
+    - importar modulo de decorador en las otras apps (pages)
 
-"""
-
-"""
 - import mensaje flash
 - crear mensaje flash en la view, en el regiser valid
 - heredar el mensaje en la template del index o en la que se requiera

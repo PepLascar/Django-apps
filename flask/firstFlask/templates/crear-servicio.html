@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}  <!-- heredando los boques que tengo en layout-->
+
+{% block title %} Crear servicio {% endblock %} 
+
+{% block content%}
+
+{% if buscar %}    {# SI LLEGA ALGO EN BUSCAR/ SINO LLEGA CREAR - recordar que la lista contiene el fech all en esta def lo tiene BUSCAR #}
+<h1>Editar {{buscar.1}} {{buscar.2}}</h1>
+{% else %}
+<h1>Crear</h1>
+{% endif %}
+
+{#SI existe un objeto BUSCAR, repobla los campos del formulario con el value#}
+<form action="" method="POST">
+    <label for="servicio">Servicio</label>
+    <input type="text" name="servicio" {% if buscar %} value="{{buscar.1}} {% endif %}"/>
+
+    <label for="modelo">Modelo</label>
+    <input type="text" name="modelo" {% if buscar %} value="{{buscar.2}} {% endif %}"/>
+
+    <label for="precio">Precio</label>
+    <input type="number" name="precio" {% if buscar %} value="{{buscar.3}} {% endif %}"/>
+
+    <label for="ciudad">Ciudad</label>
+    <input type="text" name="ciudad" {% if buscar %} value="{{buscar.4}} {% endif %}"/>
+
+    <input type="submit" value="Guardar"/>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{buscar.2}}
+{% endblock %} 
+
+
+{% block content%}
+
+    <h1>Producto: 
+        <a href="">
+        {{buscar.1}}
+        </a>
+    </h1>
+        <li> Modelo:  {{buscar.2}}</li>
+        <li> Precio: ${{buscar.3}}</li>
+        <li> Ciudad:  {{buscar.4}}</li>
+
+{% endblock %}

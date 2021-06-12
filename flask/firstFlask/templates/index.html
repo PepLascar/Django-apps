@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %} Index {% endblock %} 
+
+{% block content%}
+<h1>Estamos en el contenido de index, siendo traspasado por el layout</h1>
+
+
+{# mensajes flash#}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for i in messages%}
+            <div class="message alert-success">
+            {{i}}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+
+{# importando includdes desde otro fichero #}
+{% include 'includes/edad.html'%}
+{# Listado con ciclo FOR, loop.index muestra el índice en el que se encuentra el elemento #}
+{{personas}}
+
+{% for i in personas %}
+    <li>{{loop.index}} {{i}}</li>
+{% endfor %}
+
+{#
+{{dato1}}
+{{dato2}}   Pasando datos de la vista al template
+{{lista}}
+#}
+{% endblock %}

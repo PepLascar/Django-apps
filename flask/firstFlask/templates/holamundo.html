@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}  <!-- heredando los boques que tengo en layout-->
+
+{% block title %} Holamundo {% endblock %} 
+
+{% block content%}
+<p>Bloque de Holamundo</p>
+    <p>Desde admin: <strong>{{parametro}}</strong> </p>
+    <strong>
+    Hola Mundo, Flask!
+    Aprendiendo flask con Django 
+    </strong>
+    <!-- Incorporar static e images/evee.png
+    {{ url_for('static', filename='images/evee.png') }}    
+    -->
+{% endblock %}  
+

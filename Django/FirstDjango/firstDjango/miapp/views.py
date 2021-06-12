@@ -146,7 +146,6 @@ def create_full_article(request):
         'form': formulario       
     })
 
-
 def getArticulo(req): #Se puede entregar parámetro fijo o por url
     try:
         #articulo = Article.objects.get(pk=9)

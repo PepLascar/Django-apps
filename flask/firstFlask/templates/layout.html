@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sty.css')}}"/>
+</head>
+
+<!-- Bloque de título -->
+<title>{% block title %} {{title}} | Rhino Flask App  {% endblock %} a </title>
+
+<body>
+
+  <header>
+        <div id="logotipo">
+            <img src="{{ url_for('static', filename='images/evee.png')}}">  <!--Cargando logo de manera estática-->
+        <h1> Aprendiendo Flask | Jose Lascar (Header) </h1>
+        </div>
+    </header>
+
+<nav>  
+    <ul>
+        <li>
+            <a href="{{ url_for('index') }}">Inicio</a>
+        </li>
+        <li>
+            <a href="{{ url_for('crear_servicio') }}">Crear servicio</a>
+        </li>
+        <li>
+            <a href="{{ url_for('listar') }}">Listado Elementos</a>
+        </li>
+        <li>
+            <a href="{{ url_for('informacion') }}">Información</a> <!-- URL_FOR: se hacen con el nombre de la función -->
+        </li>
+        <li>
+            <a href="{{ url_for('contacto') }}">Contacto</a>
+        </li>
+        <li>
+            <a href="{{ url_for('holamundo') }}">HolaMundo</a>
+        </li>
+        <li>
+            <a href="{{ url_for('lenguajes') }}">Lenguajes de programación</a>
+        </li>
+    </ul>
+
+</nav>
+
+<div class="barra">  
+    <span class="esquina-izquierda"> </span>
+    <span class="relleno-barra"> </span>
+    <span class="esquina-derecha"> </span>   
+</div>
+
+
+<!-- Creando bloque que viene de templates   -->
+<div id="content">
+    <div class="box">
+        {% block content %}
+        <strong> Contenido del bloque original !!! (probando la herencia) </strong>
+        {% endblock %}
+    </div>
+</div>
+
+<!-- incorporando fecha en el footer   -->
+<footer>   
+    - FOOTER - Master en Python &copy; Jose Lascar -{{now.day}}/{{now.month}}/{{now.year}}   {{now.hour}}:{{now.minute}}
+</footer>

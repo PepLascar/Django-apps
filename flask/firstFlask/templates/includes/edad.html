@@ -1,0 +1,14 @@
+{# Probando funcionalidad de includes #}
+
+{% if edad >= 18 and edad < 100 %}
+<p>Eres mayor de edad</p>
+
+{% elif edad > 100 %}
+<p>Eres oldschool</p>
+
+{% else %}
+<p>Eres menor de edad</p>
+{% endif %}
+<p>
+    Tu edad es: {{edad}}
+</p>

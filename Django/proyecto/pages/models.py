@@ -21,7 +21,8 @@ class Page(models.Model):  #heredando de los modelos de django
         return self.title
 
 
-"""Para actualizar la base
+"""
+Para actualizar la base
 - Hago el cambio
 - makemigrations
 - Agregarla a la basa pasarla a sql
@@ -29,5 +30,4 @@ class Page(models.Model):  #heredando de los modelos de django
 - Se ha generado el sql.
 - Ahora ejecutar el SQL para que se generen esos cambios
 - python manage.py migrate
-
 """

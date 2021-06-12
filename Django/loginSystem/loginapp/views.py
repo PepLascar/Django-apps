@@ -8,7 +8,7 @@ from django.contrib import messages
 # https://codeforcoders.com/projects/django/login-system-abstract-user
 
 def welcome(req):
-    return render(req,'welcome.html')
+    return render(req, 'welcome.html')
 
 def login(req):  # CREAR CURSOR 3 y obtener USUARIO desde la database
     con = mysql.connector.connect(host='localhost', user='root', passwd='1234', database="django")
@@ -45,18 +45,32 @@ def login(req):  # CREAR CURSOR 3 y obtener USUARIO desde la database
 
         email = req.POST['email']
         password = req.POST['password']
+        #fname = req.POST['nombre']
+        res3 = nombre
+
         k=len(res)
         i=1
+        p = 1
+        #inxMail = email.index(email)        
+        #nom = nombre.append(res3)
 
-        inxMail = email.index(email)        
-        nom = nombre.append(res3)
+        while i < k:
 
-        while i <k:
+            if res[i]==email or res3[i]==p:
+                print(f"{str(res3[i])}")
+                print(i)
+
             if res[i]==email and res2[i]==password:
-                return render(req,'welcome.html',{'email':email})
+                return render(req,'welcome.html',{
+                'email':email,
+                'nombre':res3[i]
+                })
+
             i+=1
-            print(f'Nombre de usuario {nom}')
-            print(f"Correo logueado {email}")
+
+            #print(f'index{res3[i]}')
+            #print(f'Nombre de usuario {nombre}')
+            #print(f"Correo logueado {email}")
         else:
             messages.info(req,"Check username or password")
             return redirect('login')
@@ -67,11 +81,11 @@ def login(req):  # CREAR CURSOR 3 y obtener USUARIO desde la database
     print(passwd)
     print(email)"""
 
-
 def register(req):
+
     if req.method=="POST":
         user = User()
-
+        
         user.fname = req.POST['fname']
         user.lname = req.POST['lname']
         user.email = req.POST['email']
@@ -79,15 +93,13 @@ def register(req):
         user.repassword = req.POST['repassword']
 
         if user.password != user.repassword:
-            return redirect('register.html')
+            return redirect('register')
 
         elif user.fname == "" or user.password == "":
-            messages.info(req, 'some fields are empty')
-            return redirect('register.html')
-
+            messages.info(req, 'Algunos campos están vacios')
+            return redirect('register')
         else:
             user.save()            
-
     return render(req,'register.html')
 
 
