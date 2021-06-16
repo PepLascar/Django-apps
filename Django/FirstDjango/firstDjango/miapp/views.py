@@ -73,9 +73,6 @@ def pagina(request):
         'lista': ['uno', 'dos', 'tres']
     })
 
-    def pag():
-        return render(request, 'pa')
-
 def crear_articulo(request, tittle, content, public):  #CREAR UN OBJETO ARTICULO DENTRO DE LA BD - atributos del objeto articulo. Variable con parámetro que entrega el valor
     articulo = Article(
         tittle = tittle,
@@ -84,6 +81,7 @@ def crear_articulo(request, tittle, content, public):  #CREAR UN OBJETO ARTICULO
     )
     articulo.save() #para guardar un artículo obj en la bd  
     return HttpResponse(f"Artículo  {articulo.tittle} - {articulo.content } ")
+
 
 def save_article(request):  #CREAR artículo sin parámetro por URL, todo por FORMULARIO, deben haber variables que reciban los datos.
     if request.method == 'POST':
@@ -103,18 +101,19 @@ def save_article(request):  #CREAR artículo sin parámetro por URL, todo por FO
 
         articulo.save()
         print("Consola 110")
-        return HttpResponse(f"Artículo creado {articulo.tittle} - {articulo.content } - {request.method} ")
+        #return HttpResponse(f"Artículo creado {articulo.tittle} - {articulo.content } - {request.method} ")
         return redirect('articulos')
-
 
     else:
         return HttpResponse("<h2> No se ha podido crear el artículo </h2>")
 
+
 def create_article(request):
     return render(request, 'create-article.html')
 
+
 def create_full_article(request): 
-    print("Consola 122")
+
     if request.method == 'POST':
         print("Consola 124")
         formulario = FormArticle(request.POST)  

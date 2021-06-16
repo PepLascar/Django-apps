@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block title %} {{page.title}} {% endblock %}
+
+{% block content %}
+    <h1 class="title">{{title}}</h1>
+
+    {% include 'articulos.html' %}
+
+{% endblock %}
