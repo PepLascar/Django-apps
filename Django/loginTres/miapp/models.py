@@ -16,8 +16,7 @@ class Category(models.Model):
 
 
 class Article(models.Model):
-    #falta una id para poder editar
-    articuloid = models.AutoField(primary_key=True, verbose_name="Articulo id")
+
     title      = models.CharField(max_length=150, verbose_name='Título')
     content    = RichTextField(verbose_name='Contenido')
     image      = models.ImageField(default='null', verbose_name='Imagen', upload_to='articles')    #Vincularlo a que carpeta de vicule (la creada en el root llamada media)
@@ -31,9 +30,6 @@ class Article(models.Model):
         verbose_name = 'Artículo'
         verbose_name_plural = 'Artículos'
         ordering = ['-created_at'] # Criterio de orden en página artículos orden descendeente
-
-    def __str__(self):  #para cuando llame un objeto obtenga el título
-        return self.articuloid
 
     def __str__(self):  #para cuando llame un objeto obtenga el título
         return self.title

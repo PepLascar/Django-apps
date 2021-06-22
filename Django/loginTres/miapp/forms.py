@@ -33,7 +33,6 @@ class FormArticle(forms.Form): #vamos a heradar de form para obtener esos campos
             validators.MinLengthValidator(3, 'El título es muy corto'),
             validators.RegexValidator('^[A-Za-z0-9]*$', 'El título está mal formado', 'invalid_title') #validar meter solo letras, expresion regular
         ]
-
     )
 
     content = forms.CharField(
