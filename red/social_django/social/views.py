@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 from django.contrib import messages
-from .forms import Formulario, PostForm
+from .forms import EditForm, Formulario, PostForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
@@ -71,3 +71,19 @@ def unfollow(request, username):
 	rel.delete()
 	messages.success(request, f'Ya no sigues a {username}')
 	return redirect('feed')
+
+
+def editar(request, pk):
+    perfil = Profile.objects.get(user_id=pk) #un vehículo que viene del model
+    datos = {
+        'form': EditForm(instance=perfil)
+    }
+    if request.method == 'POST':
+        formulario_edit = EditForm(data=request.POST, instance=perfil, files=request.FILES)  #conjunto de datos a grabar, mediante la instancia del objeto
+        if formulario_edit.is_valid:
+            formulario_edit.save()
+            datos['mensaje'] = "Vehículo Editado Correctamente"
+    return render(request, 'social/editar.html', datos)
+
+def eliminarpost(req):
+	return None

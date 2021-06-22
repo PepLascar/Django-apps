@@ -15,6 +15,8 @@ urlpatterns = [
     path('post/', views.post, name='post'),
     path('follow/<str:username>/', views.follow, name='follow'),
     path('unfollow/<str:username>/', views.unfollow, name='unfollow'),
+    path('editar/<pk>', views.editar, name='editar'),
+    path('eliminarpost/<pk>', views.eliminarpost, name='eliminarpost')
 ]
 
 
