@@ -1,0 +1,114 @@
+{% load static %}
+{% block title %} {{title}} {% endblock %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href="{% static 'core/css/styless.css' %}" rel="stylesheet" />
+    <link href="{% static 'core/css/footer.css' %}" rel="stylesheet" />
+</head>
+    {% if messages %}
+        {% for msg in messages%}
+            <div class="alert alert-success" role="alert">
+                {{msg}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+  <body>
+    <form method="POST" action="">
+            {% csrf_token %}
+      <div class="header">
+         <p>Logueate para comenzar.</p>
+      </div>
+      <div class="description">
+        <p>¿No tienes cuenta? Crea una <a href="{% url 'registro' %}"><strong>AQUÍ</strong></a></p>
+      </div>
+
+    <div class="login">
+      <div class="input">
+        <input type="text" class="button" id="email" name="username" placeholder="Usuario">
+        <input type="password" class="button" id="" name="password" placeholder="Clave">        
+        <input type="submit" class="button" id="submit" value="login">
+        <a href="{% url 'home'  %}" class="btn btn-info">home</a>            
+
+      </div>
+    </div>
+    </form>
+  </body>
+
+<footer>
+    <div class="container-footer-all">
+        <div class="container-body">
+            <div class="column1">
+                <h1>Mas Información de la compañía</h1>
+                <p>Esta compañía se dedica a la venta, arriendo y
+                    reparación de bicicletas. Relleno de texto Relleno de
+                    texto Relleno de texto Relleno de texto </p>
+            </div>
+            <div class="column2">
+                <h1>Redes Sociales</h1>
+                <div class="row">
+                    <img src="https://image.flaticon.com/icons/png/128/145/145802.png">
+                    <label>Síguenos en Facebook</label>
+                </div>
+                <div class="row">
+                    <img src="https://image.flaticon.com/icons/png/128/733/733579.png">
+                    <label>Síguenos en Twitter</label>
+                </div>
+                <div class="row">
+                    <img src="https://image.flaticon.com/icons/png/128/174/174855.png">
+                    <label>Síguenos en Instagram</label>
+                </div>
+                <div class="row">
+                    <img src="https://image.flaticon.com/icons/png/128/2111/2111450.png">
+                    <label>Síguenos en Google Plus</label>
+                </div>
+                <div class="row">
+                    <img src="https://image.flaticon.com/icons/png/128/145/145808.png">
+                    <label>Síguenos en Pinterest</label>
+                </div>
+            </div>
+            <div class="column3">
+                <h1>Información de Contactos</h1>
+                <div class="row2">
+                    <img src="https://image.flaticon.com/icons/png/128/1946/1946433.png">
+                    <label>Av. Américo Vespucio 1501, Los Cerrillos,
+                        Cerrillos, Región Metropolitana</label>
+                </div>
+                <div class="row2">
+                    <img src="https://image.flaticon.com/icons/png/128/890/890547.png">
+                    <label>+56 9 3434 3434</label>
+                </div>
+                <div class="row2">
+                    <img src="https://image.flaticon.com/icons/png/128/552/552486.png">
+                    <label>gi.tucca@duocuc.cl</label>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="container-footer">
+        <div class="footer">
+            <div class="copyright">
+                <p>© 2021 Todos los Derechos Reservados | TI Solutions</p>
+            </div>
+            <div class="information">
+                <a href="">Información Compañia</a> |
+                <a href="">Privación y Política</a> |
+                <a href="">Términos y Condiciones</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</html>
+
+
+

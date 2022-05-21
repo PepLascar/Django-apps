@@ -29,7 +29,6 @@ def donar(req):
 def registro(req):    
     if req.user.is_authenticated:   #esto es para que si el usuario está ya autenticado no muestre el formulario de registro
         return redirect('/index')
-
     else:        
         register_form = RegisterForm() # /register_form = UserCreationForm()
 
@@ -40,7 +39,6 @@ def registro(req):
             if register_form.is_valid(): # Si es valido...
                 register_form.save()     # objeto register form guardado...
                 messages.success(req,'Ahora te puedes loguear. ¡Te has registrado correctamente!')  #mensaje flash
-
                 return redirect('/index')          
         
         return render(req, 'registro.html', {            
@@ -51,14 +49,11 @@ def registro(req):
 def login_page(req):
     if req.user.is_authenticated:   #Si el usuario está ya autenticado no muestre el formulario de registro.
         return redirect('/index')
-
     else:
-
         if req.method == 'POST':  #significa que está llegando información al formulario
             print('consola 45')
             username = req.POST.get('username')
             password = req.POST.get('password')
-
             user = authenticate(req, username=username, password=password)
 
             if user is not None:  #Si no es null ...                   
@@ -119,9 +114,7 @@ def crear(request):
 
 
 def listar(req):
-
     articles = Article.objects.all()  # Traer/obtener todos los objetos (articulos)
-
     return render(req, 'listar.html', {
         'title': 'Artículos',
         'articles': articles   #devolver esta variable
@@ -153,7 +146,6 @@ def eliminar(req, pk):
 
 def category(req, category_id):
     category = Category.objects.get(id=category_id)
-
     return render(req, 'categories/category.html', {
         'category': category
         #'articles': articles
